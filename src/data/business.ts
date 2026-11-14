@@ -6,40 +6,9 @@
  * ============================================================
  */
 
-import productHamper from "@/assets/product-hamper.jpg";
-import productDiyas from "@/assets/product-diyas.jpg";
-import productSweets from "@/assets/product-sweets.jpg";
-import productSaree from "@/assets/product-saree.jpg";
-import storeImage from "@/assets/store.jpg";
-import familyPhoto from "@/assets/family.jpg";
-
-export type Product = {
-  id: string;
-  image: string;
-  name: string;
-  description: string;
-  price: number;
-  offerPrice: number;
-  badge?: string;
-  link?: string;
-};
-
 export const shop = {
+  /** Event name — used in the page title and the WhatsApp message. */
   name: "श्री रामचरितमानस कथा महोत्सव",
-  /** Set to an imported image or a URL. Leave empty to show a monogram. */
-  logo: "",
-  tagline: "परम पावन श्री रामचरितमानस अमृतवर्षा",
-  description:
-    "मर्यादा पुरुषोत्तम प्रभु श्री राम की पावन कथा जीवन को धर्म, सत्य और आदर्शों के मार्ग पर चलने की प्रेरणा देती है। पूज्य संत श्री रवि जी समदर्शी महाराज के सानिध्य में आयोजित इस पुनीत अमृत महोत्सव में आप सभी सपरिवार सादर आमंत्रित हैं।",
-  address: "जयदेवी शास्त्री, आवास, इस्लामनगर (बदायूँ)",
-  phone: "8273095177",
-  whatsapp: "918273095177", // digits only, with country code
-  website: "",
-  instagram: "",
-  mapsUrl:
-    "https://www.google.com/maps/search/?api=1&query=Islamnagar+Budaun+Uttar+Pradesh",
-  storeImage,
-  hours: "कथा समय: प्रतिदिन सायं 05:00 से रात्रि 10:00 बजे तक",
 };
 
 /**
@@ -95,19 +64,6 @@ export const contactInfo = {
 };
 
 /**
- * Personal greeting on the red scroll.
- */
-export const greeting = {
-  /** Who the wishes are from — shown in gold under the photo. */
-  fromName: "जयदेवी शास्त्री एवं समस्त आयोजक परिवार",
-  photo: familyPhoto,
-  /** Small line above the name. */
-  caption: "सादर आमंत्रण",
-  /** Headline wish under the name. */
-  title: "श्री रामकथा पावन अमृत महोत्सव",
-};
-
-/**
  * "About us" section — plain text, write as much as you like.
  */
 export const about = {
@@ -130,108 +86,13 @@ export const heroTitle = {
 };
 
 /**
- * Blessing on the temple intro screen (above "दर्शन करें • Tap to enter"). It writes itself in
- * on load: `heading` rises word by word in gold, then `title`, then the chaupai is recited
- * word by word, one line after the other.
+ * Blessing on the temple intro screen (above "दर्शन करें • Tap to enter"). On load each line —
+ * `heading` in gold, then `title`, then each chaupai line — flies up out of the temple's spire.
  */
 export const gateBlessing = {
   heading: "॥ जय श्री राम ॥",
   title: "श्री रामचरितमानस",
   chaupai: ["मंगल भवन अमंगल हारी।", "द्रवहु सो दसरथ अजिर बिहारी॥"],
-};
-
-export type KathaEvent = {
-  title: string;
-  date: string;
-  time: string;
-  /** Small italic line under the date — place, or what happens. Optional. */
-  note?: string;
-  /** Picture in the gold medallion on the timeline. */
-  icon: "kalash" | "jyoti" | "janm" | "vivah" | "rajtilak" | "yajna" | "deep" | "prasad";
-};
-
-/**
- * Katha schedule — the timeline right under the temple. Events are numbered
- * automatically (प्रसंग 01, 02, …) in the order listed. Add or remove freely.
- */
-export const katha: { eyebrow: string; title: string; timing: string; events: KathaEvent[] } = {
-  eyebrow: "॥ कथा कार्यक्रम ॥",
-  title: "श्री राम कथा",
-  timing: "प्रतिदिन सायं 05:00 से रात्रि 10:00 बजे तक",
-  events: [
-    {
-      title: "भव्य कलश यात्रा",
-      date: "22 नवम्बर 2026, रविवार",
-      time: "प्रातः 09:00 बजे",
-      note: "नगर भ्रमण से कथा स्थल तक",
-      icon: "kalash",
-    },
-    {
-      title: "कथा शुभारंभ एवं अखंड ज्योति",
-      date: "22 नवम्बर 2026, रविवार",
-      time: "सायं 05:00 बजे",
-      note: "व्यास पीठ पूजन के साथ",
-      icon: "jyoti",
-    },
-    {
-      title: "श्री राम जन्मोत्सव",
-      date: "24 नवम्बर 2026, मंगलवार",
-      time: "सायं 05:00 बजे",
-      note: "बधाई एवं जन्मोत्सव बधाई गान",
-      icon: "janm",
-    },
-    {
-      title: "श्री सीता-राम विवाह महोत्सव",
-      date: "26 नवम्बर 2026, गुरुवार",
-      time: "सायं 05:00 बजे",
-      note: "पावन विवाह झांकी एवं उत्सव",
-      icon: "vivah",
-    },
-    {
-      title: "श्री राम राज्याभिषेक महोत्सव",
-      date: "30 नवम्बर 2026, सोमवार",
-      time: "सायं 05:00 बजे",
-      note: "पावन राजतिलक एवं उत्सव",
-      icon: "rajtilak",
-    },
-    {
-      title: "यज्ञ / हवन एवं पूर्णाहुति",
-      date: "01 दिसम्बर 2026, मंगलवार",
-      time: "दोपहर 12:00 बजे",
-      note: "वैदिक मंत्रोच्चार सहित पूर्णाहुति",
-      icon: "yajna",
-    },
-    {
-      title: "विशाल भण्डारा (महाप्रसाद)",
-      date: "01 दिसम्बर 2026, मंगलवार",
-      time: "दोपहर 02:00 बजे से प्रभु इच्छा तक",
-      note: "समस्त भक्तजन सपरिवार सादर आमंत्रित",
-      icon: "prasad",
-    },
-  ],
-};
-
-export type TeamMember = {
-  name: string;
-  /** Who they are — shown in small capitals under the name. */
-  role: string;
-  /**
-   * Photo inside the sun-ray frame. Copy the photo into src/assets, import it at the top of this
-   * file (e.g. `import rameshPhoto from "@/assets/ramesh.jpg";`) and set `photo: rameshPhoto`.
-   * A URL also works. Leave "" to show the first letter of the name.
-   */
-  photo: string;
-};
-
-/** "Our team" — shown right under "About us". Add or remove people freely. */
-export const team: { eyebrow: string; title: string; members: TeamMember[] } = {
-  eyebrow: "॥ सेवा समिति ॥",
-  title: "कथा सेवक एवं व्यवस्थापक",
-  members: [
-    { name: "श्री रमेश शर्मा", role: "मुख्य यजमान", photo: "" },
-    { name: "श्रीमती सुनीता शर्मा", role: "व्यवस्था प्रमुख", photo: "" },
-    { name: "श्री आरव शर्मा", role: "प्रसाद एवं सेवा", photo: "" },
-  ],
 };
 
 export const ramayanMessage = {
@@ -241,81 +102,3 @@ export const ramayanMessage = {
   closingWish:
     "प्रभु श्री राम का पावन आशीर्वाद आपके जीवन में सुख, शांति, समृद्धि और आनंद की वर्षा करे।",
 };
-
-export const products: Product[] = [
-  {
-    id: "hamper",
-    image: productHamper,
-    name: "श्री रामकथा प्रसाद थाली",
-    description: "पंचमेवा, शुद्ध घी की मिठाई एवं पावन तुलसी दल।",
-    price: 2499,
-    offerPrice: 1799,
-    badge: "महाप्रसाद",
-    link: "#",
-  },
-  {
-    id: "saree",
-    image: productSaree,
-    name: "पीताम्बर रेशमी वस्त्र",
-    description: "भगवान के शृंगार हेतु जरी किनारी युक्त पीताम्बर।",
-    price: 8999,
-    offerPrice: 6299,
-    badge: "पूजा सामग्री",
-    link: "#",
-  },
-  {
-    id: "diyas",
-    image: productDiyas,
-    name: "पंचमुखी पीतल आरती दीप",
-    description: "आरती एवं अखंड दीप हेतु हस्तनिर्मित पावन दीपमाला।",
-    price: 1899,
-    offerPrice: 1349,
-    badge: "अखंड दीप",
-    link: "#",
-  },
-  {
-    id: "sweets",
-    image: productSweets,
-    name: "छप्पन भोग महाप्रसाद",
-    description: "काजू कतली, मोतीचूर लड्डू एवं पंचामृत।",
-    price: 1299,
-    offerPrice: 999,
-    badge: "भोग प्रसाद",
-    link: "#",
-  },
-];
-
-export const offer = {
-  title: "श्री रामकथा पावन महोत्सव",
-  discount: "अमृतवर्षा",
-  subtitle: "सियावर रामचंद्र की जय",
-  coupon: "RAMKATHA",
-  validity: "प्रतिदिन सायं 4:00 से 7:00",
-  description:
-    "कथा स्थल पर पधारकर अमृतमयी कथा श्रवण करें और प्रभु श्री राम का पावन आशीर्वाद प्राप्त करें।",
-  cta: "कथा स्थल दर्शन",
-  ctaLink: "#about",
-};
-
-export const marqueeItems = [
-  "॥ जय श्री राम ॥",
-  "॥ श्री रामचरितमानस ॥",
-  "॥ सामाजिक संत श्री रवि जी समदर्शी महाराज ॥",
-  "॥ अमृतवर्षा ॥",
-  "॥ सियावर रामचंद्र की जय ॥",
-];
-
-/* ---------- helpers ---------- */
-
-export const whatsappLink = (text: string) =>
-  `https://wa.me/${shop.whatsapp}?text=${encodeURIComponent(text)}`;
-
-export const formatINR = (n: number) =>
-  new Intl.NumberFormat("en-IN", {
-    style: "currency",
-    currency: "INR",
-    maximumFractionDigits: 0,
-  }).format(n);
-
-export const discountPct = (price: number, offerPrice: number) =>
-  Math.round(((price - offerPrice) / price) * 100);

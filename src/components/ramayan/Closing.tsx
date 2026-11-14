@@ -1,7 +1,10 @@
+"use client";
+
 import ramDarbarCutout from "@/assets/ram-darbar-cutout.png";
 import { ramayanMessage } from "@/data/business";
 import { Divider, Particles } from "./Ornaments";
 import { Reveal } from "./Reveal";
+import { imgSrc } from "@/lib/image";
 
 export function Closing() {
   return (
@@ -51,7 +54,7 @@ export function Closing() {
 
         <Reveal delay={0.15} amount={0.2}>
           <img
-            src={ramDarbarCutout}
+            src={imgSrc(ramDarbarCutout)}
             alt="Shri Ram Darbar"
             className="relative z-10 mx-auto w-full max-w-[420px]"
             loading="lazy"

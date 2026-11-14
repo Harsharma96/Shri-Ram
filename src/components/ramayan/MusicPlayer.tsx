@@ -1,3 +1,5 @@
+"use client";
+
 import { motion, AnimatePresence } from "motion/react";
 import { Volume2, VolumeX } from "lucide-react";
 

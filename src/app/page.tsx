@@ -1,4 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
+"use client";
+
 import { useState, useRef, useEffect } from "react";
 import { Hero } from "@/components/ramayan/Hero";
 import { GreetingScroll } from "@/components/ramayan/GreetingScroll";
@@ -10,29 +11,8 @@ import { Closing } from "@/components/ramayan/Closing";
 import { GateOpening } from "@/components/ramayan/GateOpening";
 import { Watermark } from "@/components/ramayan/Watermark";
 import { MusicPlayer } from "@/components/ramayan/MusicPlayer";
-import { shop } from "@/data/business";
 
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: `${shop.name} | जयदेवी शास्त्री आवास, इस्लामनगर (बदायूँ)` },
-      {
-        name: "description",
-        content: `श्री रामचरितमानस कथा अमृत महोत्सव। कथा व्यास: सामाजिक संत श्री रवि जी समदर्शी महाराज। आयोजक: जयदेवी शास्त्री। स्थान: जयदेवी शास्त्री आवास, इस्लामनगर (बदायूँ)। संपर्क: 8273095177, 8475950474`,
-      },
-      { property: "og:title", content: `${shop.name} | जयदेवी शास्त्री आवास, इस्लामनगर` },
-      {
-        property: "og:description",
-        content: `श्री रामचरितमानस पावन कथा महोत्सव - कथा व्यास: सामाजिक संत श्री रवि जी समदर्शी महाराज। आयोजक: जयदेवी शास्त्री। स्थान: जयदेवी शास्त्री आवास, इस्लामनगर (बदायूँ)।`,
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
-  component: Index,
-});
-
-function Index() {
+export default function HomePage() {
   const [gateOpen, setGateOpen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
@@ -119,14 +99,10 @@ function Index() {
           onStartEnter={handleStartEnter}
         />
 
-        {/* ══════════════════════════════════════════════════
-            1. TOP: TEMPLE HERO SECTION
-        ══════════════════════════════════════════════════ */}
+        {/* 1. TOP: TEMPLE HERO SECTION */}
         <Hero introReady={gateOpen} />
 
-        {/* ══════════════════════════════════════════════════
-            2. BELOW TEMPLE: UNIFORM SACRED SAFFRON (#df3b11)
-        ══════════════════════════════════════════════════ */}
+        {/* 2. BELOW TEMPLE: UNIFORM SACRED SAFFRON (#df3b11) */}
         <div className="relative bg-[#df3b11]">
           {/* All Sections Below Temple */}
           <div className="relative z-10 bg-[#df3b11]">
@@ -144,3 +120,4 @@ function Index() {
     </div>
   );
 }
+

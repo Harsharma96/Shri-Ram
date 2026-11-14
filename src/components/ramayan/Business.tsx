@@ -1,3 +1,5 @@
+"use client";
+
 import { MapPin, MessageCircle, Phone } from "lucide-react";
 import { contactInfo, shop, venueInfo } from "@/data/business";
 import { Divider, Particles } from "./Ornaments";

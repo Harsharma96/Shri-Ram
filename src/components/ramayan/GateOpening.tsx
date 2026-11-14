@@ -1,3 +1,5 @@
+"use client";
+
 import { AnimatePresence, motion, useReducedMotion, type Easing } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { FLAG_TIP_Y, SANCTUM_DOOR, SPIRE_KALASH_Y, TempleScene } from "./Hero";

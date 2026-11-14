@@ -1,3 +1,5 @@
+"use client";
+
 import { useRef, useState } from "react";
 import {
   motion,
@@ -9,6 +11,7 @@ import {
 } from "motion/react";
 import { X } from "lucide-react";
 import { Particles } from "./Ornaments";
+import { imgSrc } from "@/lib/image";
 
 /*
  * The "कार्यक्रम विवरण" poster, split into its parts so each one can animate on its own:
@@ -59,14 +62,14 @@ const POLE: Box = [56, 200, 70, 1066];
 
 type Plaque = {
   alt: string;
-  body: string;
+  body: any;
   bodyBox: Box;
-  med: string;
+  med: any;
   medBox: Box;
   /** Medallion circle: centre x, centre y, radius. */
   circle: readonly [number, number, number];
   /** Gold divider above this plaque (the first plaque has none). */
-  div?: string;
+  div?: any;
   divBox?: Box;
 };
 
@@ -182,7 +185,7 @@ function PlaqueGroup({ p, index, still }: { p: Plaque; index: number; still: boo
       {p.div && p.divBox && (
         <motion.img
           variants={divVariants}
-          src={p.div}
+          src={imgSrc(p.div)}
           alt=""
           draggable={false}
           className="absolute block"
@@ -191,7 +194,7 @@ function PlaqueGroup({ p, index, still }: { p: Plaque; index: number; still: boo
       )}
       <motion.img
         variants={bodyVariants}
-        src={p.body}
+        src={imgSrc(p.body)}
         alt={p.alt}
         draggable={false}
         className="absolute block"
@@ -199,7 +202,7 @@ function PlaqueGroup({ p, index, still }: { p: Plaque; index: number; still: boo
       />
       <motion.img
         variants={medVariants}
-        src={p.med}
+        src={imgSrc(p.med)}
         alt=""
         draggable={false}
         className="absolute block"
@@ -278,7 +281,7 @@ export function KathaTimeline() {
           {/* Brass pole */}
           <div className="pointer-events-none absolute" style={place(POLE)}>
             <motion.img
-              src={poleImg}
+              src={imgSrc(poleImg)}
               alt=""
               draggable={false}
               className="block h-full w-full"
@@ -300,7 +303,7 @@ export function KathaTimeline() {
 
           {/* Header: drops in and settles */}
           <motion.img
-            src={headerImg}
+            src={imgSrc(headerImg)}
             alt="कार्यक्रम विवरण"
             draggable={false}
             className="absolute block"
@@ -360,7 +363,7 @@ export function KathaTimeline() {
               onClick={(e) => e.stopPropagation()}
             >
               <img
-                src={posterFull}
+                src={imgSrc(posterFull)}
                 alt="भव्य धार्मिक कार्यक्रम विवरण"
                 className="max-h-[88vh] w-auto object-contain block mx-auto"
               />

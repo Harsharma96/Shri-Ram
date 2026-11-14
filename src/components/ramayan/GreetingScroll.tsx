@@ -1,3 +1,5 @@
+"use client";
+
 import {
   animate,
   motion,
@@ -10,6 +12,7 @@ import { useEffect, useRef, useState } from "react";
 import bannerRod from "@/assets/katha-banner-rod.webp";
 import bannerCloth from "@/assets/katha-banner-cloth.webp";
 import { Particles } from "./Ornaments";
+import { imgSrc } from "@/lib/image";
 
 function SparkleStar({ className = "", delay = 0 }: { className?: string; delay?: number }) {
   return (
@@ -100,7 +103,7 @@ function WishScroll({ open }: { open: boolean }) {
           style={{ clipPath: paperClip, WebkitClipPath: paperClip }}
         >
           <img
-            src={bannerCloth}
+            src={imgSrc(bannerCloth)}
             alt="श्री रामकथा महोत्सव बैनर"
             draggable={false}
             className="absolute inset-0 h-full w-full object-contain select-none"
@@ -136,7 +139,7 @@ function WishScroll({ open }: { open: boolean }) {
 
         {/* Rod across the top */}
         <img
-          src={bannerRod}
+          src={imgSrc(bannerRod)}
           alt=""
           draggable={false}
           className="pointer-events-none absolute left-0 top-0 w-full select-none z-20"

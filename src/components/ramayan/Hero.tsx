@@ -1,16 +1,16 @@
+"use client";
+
 import { motion, type MotionValue } from "motion/react";
 import { useRef } from "react";
 import { ChevronDown } from "lucide-react";
 import heroBgMobile from "@/assets/hero-bg-mobile.webp";
 import heroCloudsMobile from "@/assets/hero-clouds-mobile.webp";
 import templeMobile from "@/assets/temple-mobile.webp";
-// Clean original darshan photo (the older ram-shrine.webp had blurry white patches by the face)
 import ramShrine from "@/assets/ram-lalla-darshan.webp";
 import { heroTitle } from "@/data/business";
 import { Particles } from "./Ornaments";
 import { FlowerShower } from "./FlowerShower";
-
-const ease = [0.22, 1, 0.36, 1] as const;
+import { imgSrc } from "@/lib/image";
 
 type Motionable<T> = MotionValue<T> | T;
 
@@ -62,7 +62,7 @@ export function TempleScene({
       >
         <picture className="block h-full w-full animate-bg-drift">
           <img
-            src={heroBgMobile}
+            src={imgSrc(heroBgMobile)}
             alt=""
             className="h-full w-full object-cover object-top"
             fetchPriority={fetchPriority}
@@ -92,7 +92,7 @@ export function TempleScene({
       >
         <picture className="block">
           <img
-            src={templeMobile}
+            src={imgSrc(templeMobile)}
             alt="Shri Ram Mandir glowing at sunset, above the clouds"
             className="block h-auto w-full"
             fetchPriority={fetchPriority}
@@ -107,37 +107,10 @@ export function TempleScene({
         style={{ y: cloudsY }}
       >
         <picture className="block h-full w-full">
-          <img src={heroCloudsMobile} alt="" className="h-full w-full object-cover object-top" />
+          <img src={imgSrc(heroCloudsMobile)} alt="" className="h-full w-full object-cover object-top" />
         </picture>
       </motion.div>
     </>
-  );
-}
-
-function SparkleStar({ className = "", delay = 0 }: { className?: string; delay?: number }) {
-  return (
-    <motion.svg
-      viewBox="0 0 24 24"
-      fill="none"
-      className={`pointer-events-none absolute text-[#fff3c4] ${className}`}
-      animate={{
-        scale: [0, 1.2, 0],
-        rotate: [0, 90, 180],
-        opacity: [0, 1, 0],
-      }}
-      transition={{
-        duration: 2.4,
-        repeat: Infinity,
-        repeatDelay: 1.2,
-        delay,
-        ease: "easeInOut",
-      }}
-    >
-      <path
-        d="M12 0L14.2 9.8L24 12L14.2 14.2L12 24L9.8 14.2L0 12L9.8 9.8L12 0Z"
-        fill="currentColor"
-      />
-    </motion.svg>
   );
 }
 
@@ -170,7 +143,7 @@ export function Hero({ introReady = true }: { introReady?: boolean }) {
       {/* Main Ram Lalla Shrine Image - NO ZOOM on scroll, perfectly centered, crystal clear */}
       <div className="absolute inset-0 z-0">
         <img
-          src={ramShrine}
+          src={imgSrc(ramShrine)}
           alt="Prabhu Shri Ram (Ram Lalla) in the sanctum, under a canopy of marigold and jasmine"
           className="h-full w-full object-cover object-center select-none"
           fetchPriority="high"

@@ -1,6 +1,9 @@
+"use client";
+
 import { motion } from "motion/react";
 import speakerImg from "@/assets/speaker.webp";
 import { Particles } from "./Ornaments";
+import { imgSrc } from "@/lib/image";
 
 function SparkleStar({ className = "", delay = 0 }: { className?: string; delay?: number }) {
   return (
@@ -114,7 +117,7 @@ export function KathaSchedule() {
 
           {/* Transparent Speaker Cutout */}
           <motion.img
-            src={speakerImg}
+            src={imgSrc(speakerImg)}
             alt="सामाजिक संत श्री रवि जी समदर्शी महाराज"
             draggable={false}
             className="relative z-10 w-full h-auto object-contain select-none"

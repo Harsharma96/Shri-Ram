@@ -1,3 +1,5 @@
+"use client";
+
 import { useMemo } from "react";
 
 /** Floating golden light particles. */
@@ -45,51 +47,5 @@ export function Divider({ className = "" }: { className?: string }) {
       </svg>
       <span className="gold-line flex-1" />
     </div>
-  );
-}
-
-/** Subtle rangoli mandala (SVG) used as a glowing background motif. */
-export function Rangoli({ className = "" }: { className?: string }) {
-  const petals = Array.from({ length: 12 });
-  return (
-    <svg viewBox="0 0 200 200" className={`text-gold ${className}`} aria-hidden fill="none">
-      <circle cx="100" cy="100" r="96" stroke="currentColor" strokeOpacity="0.35" />
-      <circle cx="100" cy="100" r="70" stroke="currentColor" strokeOpacity="0.5" strokeDasharray="2 6" />
-      <circle cx="100" cy="100" r="28" stroke="currentColor" strokeOpacity="0.6" />
-      {petals.map((_, i) => (
-        <g key={i} transform={`rotate(${i * 30} 100 100)`}>
-          <path
-            d="M100 8c10 18 10 36 0 54-10-18-10-36 0-54Z"
-            stroke="currentColor"
-            strokeOpacity="0.55"
-          />
-          <path d="M100 72c5 9 5 18 0 26-5-8-5-17 0-26Z" fill="currentColor" fillOpacity="0.35" />
-          <circle cx="100" cy="16" r="1.8" fill="currentColor" />
-        </g>
-      ))}
-      <circle cx="100" cy="100" r="6" fill="currentColor" fillOpacity="0.8" />
-    </svg>
-  );
-}
-
-/** Corner ornament for framed sections */
-export function Corner({ className = "" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 60 60" className={`text-gold ${className}`} aria-hidden fill="none">
-      <path d="M2 58V14C2 7 7 2 14 2h44" stroke="currentColor" strokeOpacity="0.7" />
-      <path d="M8 58V18c0-5 5-10 10-10h40" stroke="currentColor" strokeOpacity="0.35" />
-      <circle cx="14" cy="14" r="2.5" fill="currentColor" />
-      <path d="M14 8c3 3 3 9 0 12-3-3-3-9 0-12ZM8 14c3-3 9-3 12 0-3 3-9 3-12 0Z" fill="currentColor" fillOpacity="0.7" />
-    </svg>
-  );
-}
-
-/** Flickering diya glow (CSS only) */
-export function Flame({ className = "" }: { className?: string }) {
-  return (
-    <span className={`relative inline-block ${className}`} aria-hidden>
-      <span className="absolute inset-0 rounded-full bg-gold-light/70 animate-flicker" />
-      <span className="absolute inset-[25%] rounded-full bg-cream animate-flicker" style={{ animationDelay: "0.4s" }} />
-    </span>
   );
 }

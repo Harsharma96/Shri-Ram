@@ -1,3 +1,5 @@
+"use client";
+
 /**
  * Ornate Blossom used in the "Made with … Invitima" watermark.
  * Rich 8-petal sacred lotus motif with glowing core and golden jewel.

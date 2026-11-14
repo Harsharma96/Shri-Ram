@@ -1,3 +1,5 @@
+"use client";
+
 import { motion, useReducedMotion } from "motion/react";
 import marigoldOrange from "@/assets/flowers/flower-marigold-orange.webp";
 import marigoldYellow from "@/assets/flowers/flower-marigold-yellow.webp";
@@ -7,6 +9,7 @@ import roseYellow from "@/assets/flowers/flower-rose-yellow.webp";
 import hibiscusRed from "@/assets/flowers/flower-hibiscus-red.webp";
 import hibiscusPink from "@/assets/flowers/flower-hibiscus-pink.webp";
 import lotusPink from "@/assets/flowers/flower-lotus-pink.webp";
+import { imgSrc } from "@/lib/image";
 
 /**
  * Pushp varsha — real flowers (marigold, rose, hibiscus, lotus) raining down when the darshan
@@ -34,7 +37,7 @@ function seeded(seed: number) {
 }
 
 type Flower = {
-  src: string;
+  src: any;
   left: number; // % across
   size: number; // px
   delay: number; // s
@@ -90,7 +93,7 @@ function FallingFlower({ f, loop }: { f: Flower; loop: boolean }) {
   const timing = { duration: f.duration, delay: f.delay, ...(loop ? { repeat: Infinity, repeatDelay: 0.6 } : {}) };
   return (
     <motion.img
-      src={f.src}
+      src={imgSrc(f.src)}
       alt=""
       draggable={false}
       className="absolute top-0 select-none"

@@ -1,3 +1,5 @@
+"use client";
+
 import { MotionConfig, animate, motion, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { gateBlessing } from "@/data/business";

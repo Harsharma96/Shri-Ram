@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "motion/react";
 import { GraduationCap, Users } from "lucide-react";
 import { about, organizerInfo, promoterInfo } from "@/data/business";
