@@ -1,0 +1,411 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Shree Ram Charit Manas design system — golden / sacred saffron / deep maroon / warm cream.
+ * All colors in oklch. Fonts are loaded via <link> in __root.tsx.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-deep: var(--gold-deep);
+  --color-saffron: var(--saffron);
+  --color-marigold: var(--marigold);
+  --color-teal: var(--teal);
+  --color-teal-glow: var(--teal-glow);
+  --color-rani: var(--rani);
+  --color-rani-glow: var(--rani-glow);
+  --color-crimson: var(--crimson);
+  --color-maroon: var(--maroon);
+  --color-maroon-deep: var(--maroon-deep);
+  --color-cream: var(--cream);
+  --color-whatsapp: var(--whatsapp);
+
+  --font-display: "Cinzel Decorative", "Playfair Display", "Cinzel", serif;
+  --font-decorative: "Cinzel Decorative", "Cinzel", serif;
+  --font-royal: "Rozha One", serif;
+  --font-calligraphy: "Alex Brush", "Great Vibes", cursive;
+  --font-greeting: "Great Vibes", "Alex Brush", cursive;
+  --font-swash: "Elsie Swash Caps", "Playfair Display", serif;
+  --font-script: "Alex Brush", "Great Vibes", cursive;
+  --font-serif: "Cinzel", "Playfair Display", serif;
+  --font-book: "Lora", "Playfair Display", Georgia, serif;
+  --font-heading: "Playfair Display", Georgia, serif;
+  --font-hindi: "Tiro Devanagari Hindi", "Rozha One", serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+
+  --shadow-glow: none;
+  --shadow-glow-lg: none;
+  --shadow-card: none;
+
+  --animate-flicker: flicker 2.4s ease-in-out infinite;
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-marquee: marquee 38s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 44s linear infinite;
+  --animate-rays: rays 60s linear infinite;
+  --animate-drift: drift 40s ease-in-out infinite alternate;
+  --animate-rise: rise 12s linear infinite;
+  --animate-fall: fall 2.5s ease-out forwards;
+  --animate-fog-flow: fogFlow 14s ease-in-out infinite alternate;
+  --animate-fog-pulse: fogPulse 7s ease-in-out infinite alternate;
+  --animate-bg-drift: bgDrift 24s ease-in-out infinite alternate;
+  --animate-gold-shimmer: goldShimmer 5.5s ease-in-out infinite;
+
+  /* A band of light glides across gold text, then rests (pairs with text-shimmer-gold). */
+  @keyframes goldShimmer {
+    0% { background-position: 130% 0, 0 0; }
+    40%, 100% { background-position: -30% 0, 0 0; }
+  }
+
+  @keyframes fogFlow {
+    0% { transform: scale(1) translate(0%, 0%); opacity: 0.8; }
+    50% { transform: scale(1.1) translate(-2%, 3%); opacity: 1; }
+    100% { transform: scale(1.05) translate(3%, -2%); opacity: 0.85; }
+  }
+  @keyframes fogPulse {
+    0%, 100% { filter: none; }
+    50% { filter: none; }
+  }
+
+  @keyframes bgDrift {
+    0%   { transform: scale(1.04) translate(0%, 0%); }
+    33%  { transform: scale(1.06) translate(-1.5%, 1%); }
+    66%  { transform: scale(1.03) translate(1.5%, -0.8%); }
+    100% { transform: scale(1.05) translate(-0.8%, 0.5%); }
+  }
+
+  @keyframes flicker {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    30% { opacity: 0.82; transform: scale(0.97) translateY(1px); }
+    55% { opacity: 0.95; transform: scale(1.02); }
+    75% { opacity: 0.85; transform: scale(0.98); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes marquee-reverse {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
+  }
+  @keyframes rays {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  @keyframes drift {
+    from { transform: translateX(-2%) scale(1.04); }
+    to { transform: translateX(2%) scale(1.08); }
+  }
+  @keyframes rise {
+    0% { transform: translateY(0) translateX(0); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 0.6; }
+    100% { transform: translateY(-110vh) translateX(var(--sway, 20px)); opacity: 0; }
+  }
+  @keyframes fall {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    80% { opacity: 0.9; }
+    100% { transform: translateY(105vh) rotate(720deg); opacity: 0; }
+  }
+}
+
+:root {
+  --radius: 1rem;
+
+  --gold: oklch(0.82 0.15 82);
+  --gold-light: oklch(0.93 0.09 90);
+  --gold-deep: oklch(0.68 0.15 70);
+  --saffron: oklch(0.72 0.19 48);
+  --marigold: oklch(0.82 0.18 78);
+  --teal: oklch(0.68 0.14 198);
+  --teal-glow: oklch(0.78 0.16 195);
+  --rani: oklch(0.64 0.23 345);
+  --rani-glow: oklch(0.74 0.22 340);
+  --crimson: oklch(0.52 0.21 28);
+  /* Replacing dull muddy maroon with deep royal midnight obsidian */
+  --maroon: oklch(0.16 0.05 275);
+  --maroon-deep: oklch(0.10 0.03 270);
+  --cream: oklch(0.96 0.03 85);
+  --whatsapp: oklch(0.72 0.17 150);
+
+  --background: #df3b11;
+  --foreground: #ffffff;
+  --card: oklch(1 0 0 / 5%);
+  --card-foreground: #ffffff;
+  --popover: #df3b11;
+  --popover-foreground: #ffffff;
+  --primary: var(--gold);
+  --primary-foreground: #df3b11;
+  --secondary: var(--saffron);
+  --secondary-foreground: #df3b11;
+  --muted: oklch(0.3 0.07 26);
+  --muted-foreground: oklch(0.8 0.04 75);
+  --accent: var(--crimson);
+  --accent-foreground: var(--cream);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: var(--cream);
+  --border: color-mix(in oklab, var(--gold) 28%, transparent);
+  --input: color-mix(in oklab, var(--gold) 28%, transparent);
+  --ring: var(--gold);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+    background-color: #df3b11;
+  }
+  body {
+    background-color: #df3b11;
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+}
+
+/* ---------- Festive utilities ---------- */
+
+@utility glass {
+  background: linear-gradient(
+    95deg,
+    #f05e2e 0%,
+    #d73c28 50%,
+    #8a1c30 100%
+  );
+  border: 1px solid rgba(255, 235, 210, 0.4);
+}
+
+@utility glass-sub {
+  background: linear-gradient(
+    95deg,
+    #e15026 0%,
+    #b93028 50%,
+    #78182a 100%
+  );
+  border: 1px solid rgba(255, 235, 210, 0.3);
+}
+
+@utility glass-fog {
+  position: relative;
+  background: linear-gradient(
+    95deg,
+    #f05e2e 0%,
+    #d73c28 50%,
+    #8a1c30 100%
+  );
+  border: 1px solid rgba(255, 235, 210, 0.4);
+}
+
+/*
+ * Solid Uniform Sacred Color (#df3b11) requested by user for all background.
+ */
+@utility bg-saffron-sacred {
+  background-color: #df3b11;
+}
+
+@utility text-gold {
+  background: linear-gradient(180deg, var(--gold-light) 0%, var(--gold) 45%, var(--gold-deep) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility text-ramayan {
+  background: linear-gradient(
+    180deg,
+    #ff6b18 0%,
+    #ee3f0c 55%,
+    #b31c10 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility text-happy {
+  color: #4e1017;
+}
+
+/* ---------- Hero title: "Shree Ram Charit Manas" ----------
+ * Sunlit gold letters with crisp maroon outline and soft depth shadow.
+ */
+@utility title-depth-sunlit {
+  color: #5a1405;
+  -webkit-text-stroke: 0.07em #5a1405;
+}
+
+@utility title-face-sunlit {
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(180deg, #fffaf0 12%, #ffe9a8 38%, #f9c74f 62%, #e8962a 92%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/*
+ * Sunlit gold letters with a moving shine on top (add animate-gold-shimmer to make it glide).
+ * The element needs a little padding: ink outside its box is not painted by background-clip.
+ */
+@utility text-shimmer-gold {
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  background-image:
+    linear-gradient(110deg, transparent 40%, rgba(255, 253, 242, 0.95) 50%, transparent 60%),
+    linear-gradient(180deg, #fffaf0 8%, #ffe9a8 36%, #f9c74f 62%, #e8962a 95%);
+  background-size: 300% 100%, 100% 100%;
+  background-position: 130% 0, 0 0;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+@utility title-depth-ember {
+  color: transparent;
+}
+
+@utility title-face-ember {
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(180deg, #973f16 14%, #f3763d 96%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+@utility gold-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+@utility ornament-frame {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 10px;
+    border: 1px solid color-mix(in oklab, var(--gold) 45%, transparent);
+    border-radius: inherit;
+    pointer-events: none;
+  }
+}
+
+@utility rangoli-bg {
+  background-image:
+    radial-gradient(circle at 50% 50%, color-mix(in oklab, var(--gold) 14%, transparent) 0 2px, transparent 3px),
+    radial-gradient(circle at 50% 50%, color-mix(in oklab, var(--saffron) 12%, transparent) 0 1px, transparent 2px);
+  background-size: 48px 48px, 24px 24px;
+  background-position: 0 0, 12px 12px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+}
+
+@utility temple-mask {
+  mask-image: linear-gradient(to bottom, black 78%, transparent 100%);
+}
+
+@utility btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  padding: 0.85rem 1.6rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  color: var(--maroon-deep);
+  background: linear-gradient(135deg, var(--gold-light), var(--gold) 50%, var(--gold-deep));
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@utility btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  padding: 0.85rem 1.6rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--gold-light);
+  border: 1px solid color-mix(in oklab, var(--gold) 55%, transparent);
+  background: color-mix(in oklab, var(--cream) 4%, transparent);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), background 0.35s ease;
+  &:hover {
+    transform: translateY(-2px);
+    background: color-mix(in oklab, var(--gold) 15%, transparent);
+  }
+}
+
+@utility btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  padding: 0.85rem 1.6rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--cream);
+  background: linear-gradient(135deg, oklch(0.68 0.17 150), oklch(0.55 0.16 152));
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@utility section-fade-top {
+  mask-image: linear-gradient(to bottom, transparent, black 12%);
+}
+
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
