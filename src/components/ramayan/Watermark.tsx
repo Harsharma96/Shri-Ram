@@ -1,10 +1,10 @@
 "use client";
 
-import emblemImg from "@/assets/jai-shri-ram-emblem.png";
+import emblemImg from "@/assets/shri-ramkatha-emblem.png";
 import { imgSrc } from "@/lib/image";
 
 /**
- * Ornate Golden Jai Shri Ram Emblem used in the "Made with … Invitima" watermark.
+ * Ornate Golden Shri Ram Katha Emblem used in the "Made with … Invitima" watermark.
  * Features warm golden divine aura and crisp drop shadow.
  */
 function EmblemLogo() {
@@ -14,9 +14,9 @@ function EmblemLogo() {
       <div className="absolute inset-0 rounded-full bg-[#ffd77a]/35 blur-[5px] transform scale-125" />
       <img
         src={imgSrc(emblemImg)}
-        alt="जय श्री राम Emblem"
-        width={36}
-        height={36}
+        alt="श्री रामकथा निमंत्रण Emblem"
+        width={38}
+        height={38}
         className="relative h-8 w-8 sm:h-9 sm:w-9 object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]"
       />
     </div>

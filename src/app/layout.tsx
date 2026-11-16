@@ -42,7 +42,13 @@ export const metadata: Metadata = {
     images: ["/og-image.jpg"],
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/shri-ramkatha-emblem.png", sizes: "512x512", type: "image/png" },
+      { url: "/favicon.ico" },
+    ],
+    apple: [
+      { url: "/shri-ramkatha-emblem.png", sizes: "180x180", type: "image/png" },
+    ],
   },
 };
 
