@@ -8,6 +8,7 @@ import { BusinessIntro } from "@/components/ramayan/Business";
 import { AboutUs } from "@/components/ramayan/About";
 import { KathaSchedule } from "@/components/ramayan/KathaSchedule";
 import { Closing } from "@/components/ramayan/Closing";
+import { ShareInvite } from "@/components/ramayan/ShareInvite";
 import { GateOpening } from "@/components/ramayan/GateOpening";
 import { Watermark } from "@/components/ramayan/Watermark";
 import { MusicPlayer } from "@/components/ramayan/MusicPlayer";
@@ -112,6 +113,7 @@ export default function HomePage() {
             <AboutUs />
             <BusinessIntro />
             <Closing />
+            <ShareInvite />
             {/* Watermark — the very last thing on the page */}
             <Watermark />
           </div>
